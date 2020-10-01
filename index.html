@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/MarkerCluster.css">
         <link rel="stylesheet" href="css/MarkerCluster.Default.css">
-        <link rel="stylesheet" href="css/leaflet-search.css">
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <style>
         html, body, #map {
@@ -37,7 +36,6 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet.markercluster.js"></script>
-        <script src="js/leaflet-search.js"></script>
         <script src="data/LOCALISATIONPROJET_0.js"></script>
         <script>
         var highlightLayer;
@@ -58,15 +56,18 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[33.40767940974464,-7.7605800063164585],[33.627860039077206,-7.458108690697784]]);
+        }).fitBounds([[33.3512,-7.5366]]);
+		
+		
+		
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
-        L.control.locate({locateOptions: {maxZoom: 16}}).addTo(map);
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
 		
 		
 		
-			
+				
 	
 	// Ajout fonds de carte (tile et WMS)
 
@@ -125,6 +126,7 @@ GoogleStreets : L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
   
 L.control.scale().addTo(map);	
 			
+		
 		
 		
 		
@@ -325,15 +327,8 @@ L.control.scale().addTo(map);
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'LOCALISATIONPROJET<br /><table><tr><td style="text-align: center;"><img src="legend/LOCALISATIONPROJET_0_BOUSKOURA0.png" /></td><td>BOUSKOURA</td></tr><tr><td style="text-align: center;"><img src="legend/LOCALISATIONPROJET_0_COTEVILLA1.png" /></td><td>COTEVILLA</td></tr><tr><td style="text-align: center;"><img src="legend/LOCALISATIONPROJET_0_DALLAS2.png" /></td><td>DALLAS</td></tr><tr><td style="text-align: center;"><img src="legend/LOCALISATIONPROJET_0_DERBGHELEF3.png" /></td><td>DERB GHELEF</td></tr><tr><td style="text-align: center;"><img src="legend/LOCALISATIONPROJET_0_VELODROME4.png" /></td><td>VELODROME</td></tr></table>': cluster_LOCALISATIONPROJET_0,}).addTo(map);
+        L.control.layers(baseMaps,{'LOCALISATIONPROJET<br /><table><tr><td style="text-align: center;"><img src="legend/LOCALISATIONPROJET_0_BOUSKOURA0.png" /></td><td>BOUSKOURA</td></tr><tr><td style="text-align: center;"><img src="legend/LOCALISATIONPROJET_0_COTEVILLA1.png" /></td><td>COTEVILLA</td></tr><tr><td style="text-align: center;"><img src="legend/LOCALISATIONPROJET_0_DALLAS2.png" /></td><td>DALLAS</td></tr><tr><td style="text-align: center;"><img src="legend/LOCALISATIONPROJET_0_DERBGHELEF3.png" /></td><td>DERB GHELEF</td></tr><tr><td style="text-align: center;"><img src="legend/LOCALISATIONPROJET_0_VELODROME4.png" /></td><td>VELODROME</td></tr></table>': cluster_LOCALISATIONPROJET_0,},{collapsed:false}).addTo(map);
         setBounds();
-        map.addControl(new L.Control.Search({
-            layer: cluster_LOCALISATIONPROJET_0,
-            initial: false,
-            hideMarkerOnCollapse: true,
-            propertyName: 'PROJET_NOM DU PROJET'}));
-        document.getElementsByClassName('search-button')[0].className +=
-         ' fa fa-binoculars';
         </script>
     </body>
 </html>
